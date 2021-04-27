@@ -1,11 +1,14 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Главная</router-link> |
-    <router-link to="/about">О нас</router-link> |
-    <router-link to="/contacts">Контакты</router-link>
+  <div>
+    <router-view />
   </div>
-  <router-view/>
 </template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
 
 <style lang="scss">
 #app {
