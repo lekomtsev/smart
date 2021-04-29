@@ -1,50 +1,37 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
 
-/* Layout */
-import Layout from '@/layout'
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Layout
+    component: Home,
   },
   {
     path: '/about',
     name: 'About',
-    redirect: '/about/test',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Layout,
-    children: [
-      {
-        path: 'test',
-        name: 'test',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/about')
-      }
-    ]
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/contacts',
-    name: 'Contacts',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: Layout
-    // component: () => import(/* webpackChunkName: "about" */ '@/views/contacts')
-  }
-]
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      layout: 'dashboard',
+    },
+  },
+];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes,
+});
 
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter () {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
-}
-
-export default router
+export default router;

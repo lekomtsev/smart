@@ -1,0 +1,44 @@
+
+Примерная структура
+    - src
+        - assets
+            - scss
+            -
+        - components
+        - layouts
+        - router
+        - store
+        - views
+
+
+
+    Home
+    About
+    Contacts
+    Dashboard - (Auth)
+        - index (list project)
+        - constructor --- (page-constructor)
+        - settings
+        - ...
+
+    /product
+    /product/${id}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
