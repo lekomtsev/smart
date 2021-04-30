@@ -1,9 +1,7 @@
 <template>
   <header class="header">
     <div class="container header__container">
-      <div class="header__logo">
-        Logo
-      </div>
+      <div class="header__logo logo">Logo</div>
       <header-menu class="header__menu"></header-menu>
     </div>
   </header>
@@ -22,7 +20,21 @@ export default {
 
 <style lang="scss">
 .header {
+}
+
+.header__container {
   display: flex;
+  align-items: center;
+  height: 100px;
+  background: lightblue;
+}
+
+.header__logo {
+  margin-right: 50px;
+}
+
+.header__menu {
+  flex-grow: 1;
 }
 
 </style>

@@ -4,5 +4,15 @@
 // Fonts
 @import "base/fonts";
 
-// Components
-@import "./components/button";
+@import "abstracts/variables";
+
+// Maybe plugins...
+// @import "./vendors/vendors";
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+@import "base/base";
+@import "base/helpers";
+
+// Maybe layout...
+// Maybe pages and others...

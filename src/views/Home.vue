@@ -1,17 +1,14 @@
 <template>
-  <div class="home">
-    <h1>Home page weqweqwe</h1>
-    <Button />
-  </div>
+  <Promo />
 </template>
 
 <script>
-import Button from '../components/Button/index.vue';
+import Promo from '@/components/Promo/index.vue';
 
 export default {
   name: 'Home',
   components: {
-    Button,
+    Promo,
   },
 };
 </script>
