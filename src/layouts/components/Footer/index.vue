@@ -23,6 +23,7 @@
 </template>
 
 <style>
-.footer__menu {
+.footer {
+  padding: 30px 0;
 }
 </style>
