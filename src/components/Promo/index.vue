@@ -1,27 +1,41 @@
 <template>
   <div class="promo">
-    <div class="container promo__container">
-      <p>Lorem ipsum dolor sit amet. </p>
-      <Button class="button__primary" @click.native="handleModal" />
-      <div v-if="isActiveModal">Popup</div>
-      <b-button @click="handleModal">Button</b-button>
-    </div>
+    <b-carousel
+      fade
+      indicators>
+      <b-carousel-slide
+        v-for="slide in slides" :key="slide.caption"
+        :caption="slide.caption"
+        :img-src="slide.imgSrc"
+      ></b-carousel-slide>
+    </b-carousel>
   </div>
 </template>
 
 <script>
-import Button from '@/components/ui/Button/index.vue';
+// import Button from '@/components/ui/Button/index.vue';
 
 export default {
   name: 'Promo',
   data() {
     return {
-      isActiveModal: false,
+      slides: [
+        {
+          caption: 'First slide',
+          imgSrc: 'https://picsum.photos/1024/480/?image=10',
+        },
+        {
+          caption: 'Second slide',
+          imgSrc: 'https://picsum.photos/1024/480/?image=12',
+        },
+        {
+          caption: 'Third slide',
+          imgSrc: 'https://picsum.photos/1024/480/?image=22',
+        },
+      ],
     };
   },
-  components: {
-    Button,
-  },
+  components: {},
   methods: {
     handleModal() {
       this.isActiveModal = !this.isActiveModal;
@@ -32,11 +46,15 @@ export default {
 
 <style lang="scss">
 .promo {
-  height: 300px;
 }
 
-.promo__container {
-  height: 300px;
-  background: indianred;
+.carousel {}
+
+.carousel-item {
+  height: 500px;
+}
+
+.carousel img {
+  max-width: 100%;
 }
 </style>

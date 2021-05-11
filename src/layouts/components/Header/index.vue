@@ -26,7 +26,6 @@ export default {
   display: flex;
   align-items: center;
   height: 100px;
-  background: lightblue;
 }
 
 .header__logo {
