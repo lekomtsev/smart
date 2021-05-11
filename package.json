@@ -11,6 +11,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "jest-worker": "^26.6.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
     "vue-extend-layout": "^2.0.6",
