@@ -2,18 +2,18 @@
   <div class="product">
     <b-container class="product__container">
       <b-card
-        :title="product.title"
-        :img-src="product.imgSrs"
+        v-for="product in products"
+        :key="product.id"
+        :title="product.login"
+        :img-src="product.owner.avatar_url"
         img-alt="Image"
         img-top
         tag="article"
         style="max-width: 20rem;"
         class="mb-2"
-        v-for="product in products"
-        :key="product.title"
       >
         <b-card-text>
-          {{product.description}}
+          {{ product.owner.login }}
         </b-card-text>
         <b-button href="#" variant="primary">Купить</b-button>
       </b-card>
@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      products: [
+      productsTest: [
         {
           title: 'Товар дня 1',
           imgSrs: 'https://picsum.photos/600/300/?image=25',
@@ -72,7 +72,32 @@ export default {
           description: 'Успей купить лучший товар дня!',
         },
       ],
+      products: [],
     };
+  },
+  methods: {
+    getProducts() {
+      fetch('https://api.github.com/search/repositories?term=lek&_type=public&q=lek')
+        .then((response) => {
+          if (response.status !== 200) {
+            console.warn(`Looks like there was a problem.
+                Status Code:  + ${response.status}`);
+            return;
+          }
+          // Examine the text in the response
+          response.json()
+            .then((data) => {
+              console.warn(data);
+              this.products = data.items;
+            });
+        })
+        .catch((err) => {
+          console.warn('Fetch Error :-S', err);
+        });
+    },
+  },
+  mounted() {
+    this.getProducts();
   },
 };
 </script>
