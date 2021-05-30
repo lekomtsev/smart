@@ -2,10 +2,10 @@
   <div class="product">
     <b-container class="product__container">
       <b-card
-        v-for="product in products"
-        :key="product.id"
-        :title="product.login"
-        :img-src="product.owner.avatar_url"
+        v-for="(news, i) in productsTest"
+        :key="i"
+        :title="news.name"
+        :img-src="news.imgSrs"
         img-alt="Image"
         img-top
         tag="article"
@@ -13,9 +13,9 @@
         class="mb-2"
       >
         <b-card-text>
-          {{ product.owner.login }}
+          {{ news.description }}
         </b-card-text>
-        <b-button href="#" variant="primary">Купить</b-button>
+        <b-button :href="`/news/${news.id}`" variant="primary">Смотреть</b-button>
       </b-card>
     </b-container>
   </div>
@@ -27,77 +27,52 @@ export default {
     return {
       productsTest: [
         {
+          id: '1',
           title: 'Товар дня 1',
           imgSrs: 'https://picsum.photos/600/300/?image=25',
           description: 'Успей купить лучший товар дня!',
         },
         {
+          id: '2',
           title: 'Товар дня 2',
           imgSrs: 'https://picsum.photos/600/300/?image=26',
           description: 'Успей купить лучший товар дня!',
         },
         {
+          id: '3',
           title: 'Товар дня 3',
           imgSrs: 'https://picsum.photos/600/300/?image=27',
           description: 'Успей купить лучший товар дня!',
         },
         {
+          id: '4',
           title: 'Товар дня 1',
           imgSrs: 'https://picsum.photos/600/300/?image=28',
           description: 'Успей купить лучший товар дня!',
         },
         {
+          id: '5',
           title: 'Товар дня 2',
           imgSrs: 'https://picsum.photos/600/300/?image=29',
           description: 'Успей купить лучший товар дня!',
         },
         {
-          title: 'Товар дня 3',
-          imgSrs: 'https://picsum.photos/600/300/?image=30',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          title: 'Товар дня 1',
+          id: '6',
+          title: 'Товар дня 2',
           imgSrs: 'https://picsum.photos/600/300/?image=31',
           description: 'Успей купить лучший товар дня!',
         },
-        {
-          title: 'Товар дня 2',
-          imgSrs: 'https://picsum.photos/600/300/?image=32',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          title: 'Товар дня 3',
-          imgSrs: 'https://picsum.photos/600/300/?image=33',
-          description: 'Успей купить лучший товар дня!',
-        },
       ],
-      products: [],
+      allNews: [],
     };
   },
   methods: {
     getProducts() {
-      fetch('https://api.github.com/search/repositories?term=lek&_type=public&q=lek')
-        .then((response) => {
-          if (response.status !== 200) {
-            console.warn(`Looks like there was a problem.
-                Status Code:  + ${response.status}`);
-            return;
-          }
-          // Examine the text in the response
-          response.json()
-            .then((data) => {
-              console.warn(data);
-              this.products = data.items;
-            });
-        })
-        .catch((err) => {
-          console.warn('Fetch Error :-S', err);
-        });
+      // gitHub https://api.github.com/search/repositories?term=lek&_type=public&q=lek
+      // https://community-hacker-news-v1.p.rapidapi.com/user/25172559.json?print=pretty
     },
   },
   mounted() {
-    this.getProducts();
   },
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <b-sidebar id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light collapse">
+  <nav id="sidebarMenu" class="col-md-3 col-sm-3 col-lg-3 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <router-link class="nav-link" to="/dashboard">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                  stroke-linejoin="round" class="feather feather-home">
@@ -11,18 +11,29 @@
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
             Dashboard
-          </a>
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <router-link class="nav-link" to="/dashboard/profile">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
               <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
               <polyline points="13 2 13 9 20 9"></polyline>
             </svg>
-            Orders
-          </a>
+            Все объявления
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/dashboard/add">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+              <polyline points="13 2 13 9 20 9"></polyline>
+            </svg>
+            Добавить объявление
+          </router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
@@ -147,7 +158,7 @@
         </li>
       </ul>
     </div>
-  </b-sidebar>
+  </nav>
 </template>
 
 <style lang="scss">

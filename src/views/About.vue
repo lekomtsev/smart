@@ -52,10 +52,29 @@
       </b-container>
     </div>
     <div class="partners">
-      123
+      <b-container>
+        <table-about></table-about>
+      </b-container>
     </div>
   </div>
 </template>
+
+<script>
+import TableAbout from '@/components/About/TableAbout.vue';
+
+export default {
+  name: 'AboutPage',
+  components: {
+    TableAbout,
+  },
+  data() {
+    return {
+    };
+  },
+  methods: {
+  },
+};
+</script>
 
 <style>
 .about {

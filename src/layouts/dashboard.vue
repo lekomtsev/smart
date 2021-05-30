@@ -1,12 +1,12 @@
 <template>
   <div class="dashboard">
     <DashboardHeader />
-    <b-container fluid="xl lg md sm xs">
+    <div class="container-fluid">
       <b-row>
         <DashboardNavbar />
         <router-view />
       </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 

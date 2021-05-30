@@ -33,6 +33,53 @@
     источники - https://github.com/vuejs/vue-hackernews-2.0/blob/master/src/api/
 
 
+    components - кусочки комопнентов - Button, Slider итп
+    layouts - шаблоны -
+    views - непосредственно сами страницы
+
+
+    - изучить Vuex
+    - повторить VueRouter
+    -
+
+    - Сделать более просотую зашиту для теста
+        - при вводе данных проверять на вилидность и сверить с fakeUserData
+        - запомнить и изучить как проверять внутренние роуты
+        -
+
+    /dashboard/index - по умолчанию
+    /dashboard/ads/ad
+    /dashboard/ads/edit
+    /dashboard/ads/view(or list)
+
+    --- Пример:
+        - components
+        - layouts
+        - views (all pages)
+        -
+
+    Личный кабинет (admin - superAdmin)
+        /dashboard
+        /dashboard/news/list{ просмотр всех объявлений }
+        /dashboard/news/edit{ редактирование одного объявлений }
+        /dashboard/news/delete{  }
+
+        /Добавление баннера в виде слайдера на главной
+
+        /Профиль (Настройки)
+        /
+
+
+    Главная
+        /Home
+            - { слайдер на глваной }
+            - { просмотр всех новостей }
+            - { --- }
+
+        /news/сама новость
+
+
+    -- Создание страницы заказов
 
 
 
