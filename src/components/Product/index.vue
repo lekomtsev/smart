@@ -2,7 +2,7 @@
   <div class="product">
     <b-container class="product__container">
       <b-card
-        v-for="(news, i) in productsTest"
+        v-for="(news, i) in allNews"
         :key="i"
         :title="news.name"
         :img-src="news.imgSrs"
@@ -23,49 +23,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      productsTest: [
-        {
-          id: '1',
-          title: 'Товар дня 1',
-          imgSrs: 'https://picsum.photos/600/300/?image=25',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          id: '2',
-          title: 'Товар дня 2',
-          imgSrs: 'https://picsum.photos/600/300/?image=26',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          id: '3',
-          title: 'Товар дня 3',
-          imgSrs: 'https://picsum.photos/600/300/?image=27',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          id: '4',
-          title: 'Товар дня 1',
-          imgSrs: 'https://picsum.photos/600/300/?image=28',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          id: '5',
-          title: 'Товар дня 2',
-          imgSrs: 'https://picsum.photos/600/300/?image=29',
-          description: 'Успей купить лучший товар дня!',
-        },
-        {
-          id: '6',
-          title: 'Товар дня 2',
-          imgSrs: 'https://picsum.photos/600/300/?image=31',
-          description: 'Успей купить лучший товар дня!',
-        },
-      ],
-      allNews: [],
-    };
-  },
   methods: {
     getProducts() {
       // gitHub https://api.github.com/search/repositories?term=lek&_type=public&q=lek
@@ -73,6 +30,11 @@ export default {
     },
   },
   mounted() {
+  },
+  computed: {
+    allNews() {
+      return this.$store.getters.allNews;
+    },
   },
 };
 </script>

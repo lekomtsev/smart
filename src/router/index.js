@@ -9,6 +9,8 @@ import NewAd from '../views/Ads/NewAd.vue';
 import List from '../views/Ads/List.vue';
 import TestComp from '../views/Ads/TestComp.vue';
 import SingleNews from '../views/MainNews/SingleNews.vue';
+// dashboard
+import CreateNews from '../views/Dashboard/News/CreateNews.vue';
 
 Vue.use(VueRouter);
 
@@ -31,6 +33,7 @@ const routes = [
     name: 'SingleNews',
     component: SingleNews,
   },
+  // Dashboard
   {
     path: '/dashboard',
     name: 'Dashboard',
@@ -50,27 +53,14 @@ const routes = [
     },
   },
   {
-    path: '/ad/:id',
-    name: 'ad',
-    component: Ad,
-    children: [
-      {
-        path: 'profile',
-        name: 'adProfile',
-        component: TestComp,
-      },
-    ],
+    path: '/dashboard/news/create',
+    name: 'CreateNews',
+    component: CreateNews,
+    meta: {
+      layout: 'dashboard',
+    },
   },
-  {
-    path: '/list',
-    name: 'list',
-    component: List,
-  },
-  {
-    path: '/new',
-    name: 'newAd',
-    component: NewAd,
-  },
+  // Auth
   {
     path: '/login',
     name: 'Login',
